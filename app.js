@@ -17,7 +17,9 @@ const userName = [];
 app.use(express.json({ limit: "100kb" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.listen('3000', () => console.log("The server is up and listening."))
+port = process.env.PORT || 3000;
+
+app.listen(port , () => console.log("The server is up and listening."))
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/home.html")
